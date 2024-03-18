@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\josea\\source\\repos\\Clients-Server\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\source\\repos\\clients-server\\clients-server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\source\\repos\\clients-server\\clients-server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\source\\repos\\clients-server\\clients-server\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\josea\\source\\repos\\Clients-Server\\Clients-Server\\Program.cs",
+              "RelativeDocumentMoniker": "Clients-Server\\Program.cs",
+              "ToolTip": "C:\\Users\\josea\\source\\repos\\Clients-Server\\Clients-Server\\Program.cs",
+              "RelativeToolTip": "Clients-Server\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAACHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T13:53:18.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\josea\\source\\repos\\Clients-Server\\Clients-Server\\appsettings.json",
+              "RelativeDocumentMoniker": "Clients-Server\\appsettings.json",
+              "ToolTip": "C:\\Users\\josea\\source\\repos\\Clients-Server\\Clients-Server\\appsettings.json",
+              "RelativeToolTip": "Clients-Server\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-18T13:47:02.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "C:\\Users\\josea\\source\\repos\\Clients-Server\\Clients-Server\\Data\\DataContext.cs",
+              "RelativeDocumentMoniker": "Clients-Server\\Data\\DataContext.cs",
+              "ToolTip": "C:\\Users\\josea\\source\\repos\\Clients-Server\\Clients-Server\\Data\\DataContext.cs",
+              "RelativeToolTip": "Clients-Server\\Data\\DataContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T13:20:21.517Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
