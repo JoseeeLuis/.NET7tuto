@@ -1,3 +1,4 @@
+global using Clients_Server.Models;
 using Clients_Server.Data;
 using Microsoft.EntityFrameworkCore;
 

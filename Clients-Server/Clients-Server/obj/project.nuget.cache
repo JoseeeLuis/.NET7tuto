@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2WtcnWgHXLrGvXr27RZPEoGIN353pexMUl25QgWp1BHX9fstXNI+9xPwT+/b9gje7sZ4SB70n2zWQ+stwoUqWw==",
+  "dgSpecHash": "lzGY/ENC9fAR1+SynCL4QsXrbHOVwb5xWknBIbjc1EBSu35CSvTaJ5X7BFf69LGThH1qMNW8b2r3dUjcbdVFPw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\josea\\source\\repos\\Clients-Server\\Clients-Server\\Clients-Server.csproj",
+  "projectFilePath": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Clients-Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\josea\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\josea\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
