@@ -6,6 +6,7 @@ namespace Clients_Server.Data
     {
         public DataContext(DbContextOptions<DataContext> options):base(options) { }
 
-        public DbSet <Worker> Workers { get; set; } 
+        public DbSet <Worker> Workers { get; set; }
+        public DbSet<Project> Projects { get; set; }
     }
 }
