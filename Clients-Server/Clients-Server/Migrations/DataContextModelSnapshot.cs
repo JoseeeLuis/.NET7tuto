@@ -24,11 +24,9 @@ namespace Clients_Server.Migrations
 
             modelBuilder.Entity("Clients_Server.Models.Project", b =>
                 {
-                    b.Property<int>("ProjectId")
+                    b.Property<Guid>("ProjectId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProjectId"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ProjectName")
                         .IsRequired()
@@ -47,13 +45,6 @@ namespace Clients_Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WorkerId"));
 
-                    b.Property<DateTime>("JoiningDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SeniorityTypeCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("WorkerName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -63,10 +54,43 @@ namespace Clients_Server.Migrations
                     b.ToTable("Workers");
                 });
 
+            modelBuilder.Entity("Clients_Server.Models.WorkerDetails", b =>
+                {
+                    b.Property<int>("WorkerDetailsId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WorkerDetailsId"));
+
+                    b.Property<string>("DepartamentTypeCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("JoiningDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Salary")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("SeniorityTypeCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WorkerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("WorkerDetailsId");
+
+                    b.HasIndex("WorkerId")
+                        .IsUnique();
+
+                    b.ToTable("WorkersDetails");
+                });
+
             modelBuilder.Entity("ProjectWorker", b =>
                 {
-                    b.Property<int>("ProjectsProjectId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ProjectsProjectId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("WorkersWorkerId")
                         .HasColumnType("int");
@@ -76,6 +100,17 @@ namespace Clients_Server.Migrations
                     b.HasIndex("WorkersWorkerId");
 
                     b.ToTable("ProjectWorker");
+                });
+
+            modelBuilder.Entity("Clients_Server.Models.WorkerDetails", b =>
+                {
+                    b.HasOne("Clients_Server.Models.Worker", "Worker")
+                        .WithOne("WorkerDetails")
+                        .HasForeignKey("Clients_Server.Models.WorkerDetails", "WorkerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Worker");
                 });
 
             modelBuilder.Entity("ProjectWorker", b =>
@@ -90,6 +125,12 @@ namespace Clients_Server.Migrations
                         .WithMany()
                         .HasForeignKey("WorkersWorkerId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Clients_Server.Models.Worker", b =>
+                {
+                    b.Navigation("WorkerDetails")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

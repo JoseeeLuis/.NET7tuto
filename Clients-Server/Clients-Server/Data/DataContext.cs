@@ -8,5 +8,15 @@ namespace Clients_Server.Data
 
         public DbSet <Worker> Workers { get; set; }
         public DbSet<Project> Projects { get; set; }
+
+        public DbSet <WorkerDetails> WorkersDetails { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<WorkerDetails>()
+                .Property(w => w.Salary)
+                .HasColumnType("decimal(18,2)");
+        }
     }
 }
