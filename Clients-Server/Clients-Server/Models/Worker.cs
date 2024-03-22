@@ -11,6 +11,8 @@ namespace Clients_Server.Models
         public string SeniorityTypeCode { get; set; } = string.Empty; 
 
         public DateTime JoiningDate { get; set; } = DateTime.Now;
+
+        public List<Project> Projects { get; set; }
            
     }
 }
