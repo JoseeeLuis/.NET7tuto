@@ -5,7 +5,7 @@
 namespace Clients_Server.Migrations
 {
     /// <inheritdoc />
-    public partial class WorkerProjectsRealtionShip : Migration
+    public partial class WorkerProjectsRelationship : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
