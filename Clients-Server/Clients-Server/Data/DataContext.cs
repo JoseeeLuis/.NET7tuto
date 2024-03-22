@@ -8,7 +8,7 @@ namespace Clients_Server.Data
 
         public DbSet <Worker> Workers { get; set; }
         public DbSet<Project> Projects { get; set; }
-
+        public DbSet<Address> Addresses { get; set; }
         public DbSet <WorkerDetails> WorkersDetails { get; set; }
 
 
