@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Clients_Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240322155104_WorkerWorkerDetailsRelationship")]
-    partial class WorkerWorkerDetailsRelationship
+    [Migration("20240322194104_foreignkeyAddress")]
+    partial class foreignkeyAddress
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,33 @@ namespace Clients_Server.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Clients_Server.Models.Address", b =>
+                {
+                    b.Property<int>("AddressId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AddressId"));
+
+                    b.Property<int>("PostalCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StreetNumber")
+                        .HasColumnType("int");
+
+                    b.HasKey("AddressId");
+
+                    b.ToTable("Addresses", (string)null);
+                });
 
             modelBuilder.Entity("Clients_Server.Models.Project", b =>
                 {
@@ -48,13 +75,27 @@ namespace Clients_Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WorkerId"));
 
+                    b.Property<int>("AddressId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Prueba")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WorkerDetailsId")
+                        .HasColumnType("int");
+
                     b.Property<string>("WorkerName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("WorkerId");
 
-                    b.ToTable("Workers");
+                    b.HasIndex("AddressId");
+
+                    b.HasIndex("WorkerDetailsId");
+
+                    b.ToTable("Workers", (string)null);
                 });
 
             modelBuilder.Entity("Clients_Server.Models.WorkerDetails", b =>
@@ -79,15 +120,9 @@ namespace Clients_Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("WorkerId")
-                        .HasColumnType("int");
-
                     b.HasKey("WorkerDetailsId");
 
-                    b.HasIndex("WorkerId")
-                        .IsUnique();
-
-                    b.ToTable("WorkersDetails");
+                    b.ToTable("WorkersDetails", (string)null);
                 });
 
             modelBuilder.Entity("ProjectWorker", b =>
@@ -105,15 +140,23 @@ namespace Clients_Server.Migrations
                     b.ToTable("ProjectWorker");
                 });
 
-            modelBuilder.Entity("Clients_Server.Models.WorkerDetails", b =>
+            modelBuilder.Entity("Clients_Server.Models.Worker", b =>
                 {
-                    b.HasOne("Clients_Server.Models.Worker", "Worker")
-                        .WithOne("WorkerDetails")
-                        .HasForeignKey("Clients_Server.Models.WorkerDetails", "WorkerId")
+                    b.HasOne("Clients_Server.Models.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Worker");
+                    b.HasOne("Clients_Server.Models.WorkerDetails", "WorkerDetails")
+                        .WithMany()
+                        .HasForeignKey("WorkerDetailsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Address");
+
+                    b.Navigation("WorkerDetails");
                 });
 
             modelBuilder.Entity("ProjectWorker", b =>
@@ -128,12 +171,6 @@ namespace Clients_Server.Migrations
                         .WithMany()
                         .HasForeignKey("WorkersWorkerId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Clients_Server.Models.Worker", b =>
-                {
-                    b.Navigation("WorkerDetails")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618
