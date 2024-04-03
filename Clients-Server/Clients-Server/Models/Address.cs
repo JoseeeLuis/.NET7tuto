@@ -2,10 +2,9 @@
 {
     public class Address
     {
-        public Guid AddressId { get; set; }
-        public int WorkerId { get; set; }
-        public Worker Worker { get; set; }
-        public string Street { get; set; } = string.Empty;  
+        public int AddressId { get; set; }
+
+        public string Street { get; set; } 
 
         public int StreetNumber { get; set; }
 
