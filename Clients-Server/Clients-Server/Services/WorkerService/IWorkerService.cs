@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Clients_Server.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Clients_Server.Services.WorkerService
 {
@@ -6,9 +7,11 @@ namespace Clients_Server.Services.WorkerService
     {
         Task<List<WorkerDTO>> GetAllWorkers();
         Task<WorkerDTO> GetSingleWorker(int WorkerId);
-        //Task<List<Worker>> DeleteWorker(int WorkerId);
-
-        Task<List<WorkerDTO>> CreateWorker(PostWorkerDTO postWorkerDTO);
+        Task<Response> DeleteWorker(int WorkerId);
+        Task<Response> CreateWorker(PostWorkerDTO postWorkerDTO,
+                                               IAddressRepository addressRepository,
+                                               IWorkerDetailsRepository workerDetailsRepository,
+                                               IWorkerRepository workerRepository);
         //Task<List<Worker>> GetByDepartament(string DepartamentTypeCode);
         //Task<List<Worker>> GetBySeniority(string SeniorityTypeCode);
         //Task<List<Worker>> GetByProject(int ProjectId);
