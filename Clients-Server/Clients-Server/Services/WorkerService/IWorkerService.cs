@@ -8,10 +8,7 @@ namespace Clients_Server.Services.WorkerService
         Task<List<WorkerDTO>> GetAllWorkers();
         Task<WorkerDTO> GetSingleWorker(int WorkerId);
         Task<Response> DeleteWorker(int WorkerId);
-        Task<Response> CreateWorker(PostWorkerDTO postWorkerDTO,
-                                               IAddressRepository addressRepository,
-                                               IWorkerDetailsRepository workerDetailsRepository,
-                                               IWorkerRepository workerRepository);
+        Task<Response> CreateWorker(PostWorkerDTO postWorkerDTO);
         //Task<List<Worker>> GetByDepartament(string DepartamentTypeCode);
         //Task<List<Worker>> GetBySeniority(string SeniorityTypeCode);
         //Task<List<Worker>> GetByProject(int ProjectId);
