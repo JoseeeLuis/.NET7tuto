@@ -1,4 +1,5 @@
 ﻿global using Clients_Server.Models;
+global using Serilog;
 using Clients_Server.Data;
 using Clients_Server.Repositories;
 using Clients_Server.Services.WorkerService;
@@ -15,6 +16,12 @@ builder.Services.AddScoped<IWorkerService, WorkerServices>();
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 builder.Services.AddScoped<IWorkerDetailsRepository, WorkerDetailsRepository>();
 builder.Services.AddScoped<IWorkerRepository, WorkerRepository>();
+Log.Logger = new LoggerConfiguration()
+                 .MinimumLevel
+                 .Information()
+                 .WriteTo.Console()
+                 .WriteTo.File("logs/WorkersLogs-.txt",rollingInterval: RollingInterval.Day)
+                 .CreateLogger();
 
 var app = builder.Build();
 
