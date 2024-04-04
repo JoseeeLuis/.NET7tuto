@@ -15,6 +15,8 @@ namespace Clients_Server.Models
         public WorkerDetails WorkerDetails { get; set; }
         public List<Project> Projects { get; set; }
 
+        public Boolean IsDelete { get; set; } = false;
+
         public WorkerDTO ToDto()
         {
             return new WorkerDTO
