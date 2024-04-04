@@ -1,4 +1,5 @@
 ﻿using Clients_Server.Data;
+using Clients_Server.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,7 @@ namespace Clients_Server.Services.WorkerService
                 .Include(w=>w.WorkerDetails)
                 .Include(w=>w.WorkerDetails.DepartamentType)
                 .Include(w=>w.WorkerDetails.SeniorityType)
+                .Where(w => !w.IsDelete) 
                 .ToListAsync();
 
             var formatWorkers=  workers.Select(w=>w.ToDto()).ToList();
@@ -32,6 +34,10 @@ namespace Clients_Server.Services.WorkerService
             var worker = await _context.Workers
                 .Include(w => w.WorkerDetails)
                 .Include(w => w.Address)
+                .Include(w => w.Projects)
+                .Include(w => w.WorkerDetails)
+                .Include(w => w.WorkerDetails.DepartamentType)
+                .Include(w => w.WorkerDetails.SeniorityType)
                 .FirstOrDefaultAsync(w => w.WorkerId == WorkerId);
             
             if (worker == null)
@@ -44,59 +50,86 @@ namespace Clients_Server.Services.WorkerService
         }
 
 
-        //public async Task<List<Worker>> DeleteWorker(int WorkerId)
-        //{
-        //    var worker = await _context.Workers
-        //        .Include(w => w.WorkerDetails)
-        //        .Include(w => w.Address)
-        //        .FirstOrDefaultAsync(w => w.WorkerId == WorkerId);
-        //    if (worker is null)
-        //        return null;
-        //    _context.Workers.Remove(worker);
-        //    await _context.SaveChangesAsync();
-        //    var workers = await _context.Workers.ToListAsync();
-        //    return workers;
-        //}
-        public async Task<List<WorkerDTO>> CreateWorker(PostWorkerDTO postWorkerDTO)
+        public async Task<Response> DeleteWorker(int WorkerId)
         {
-            var address = new Address
+            var response = new Response();
+            try
             {
-                Street = postWorkerDTO.Street,
-                StreetNumber = postWorkerDTO.StreetNumber,
-                State = postWorkerDTO.State,
-                PostalCode = postWorkerDTO.PostalCode,
-            };
-           await _context.Addresses.AddAsync(address);
-            await _context.SaveChangesAsync();
-            
-            var workerDetails = new WorkerDetails
-            {
-                SeniorityTypeCode = postWorkerDTO.SeniorityTypeCode,
-                JoiningDate = postWorkerDTO.JoiningDate,
-                DepartamentTypeCode = postWorkerDTO.DepartamentTypeCode,
-            };
-             await _context.WorkersDetails.AddAsync(workerDetails);
-            await _context.SaveChangesAsync();
-            var worker = new Worker
-            {
-                WorkerName = postWorkerDTO.WorkerName,
-                AddressId = address.AddressId,
-                WorkerDetailsId =workerDetails.WorkerDetailsId,
-
-            };
-            await _context.Workers.AddAsync(worker);
+                var worker = await _context.Workers.FirstOrDefaultAsync(w => w.WorkerId == WorkerId);
+                if (worker != null)
+                {
+                    worker.IsDelete = true;
+                    await _context.SaveChangesAsync();
+                    response.StatusCode = 200;
+                    response.Message = "Worker deleted successfully";
+                    
+                }
+                else
+                {
+                    response.StatusCode = 404;
+                    response.Message = "Worker NotFound";
+                }
     
-            await _context.SaveChangesAsync();
-            var workers =  await GetAllWorkers();
-            if (workers == null)
-            {
-                return null;
             }
 
+            catch (Exception ex) {
 
+                response.StatusCode = 500;
+                response.Message = "An error occurred while deleting the worker: " + ex.Message;
 
-            return workers;
+            }
+            return response;
         }
+
+        public async Task<Response> CreateWorker(PostWorkerDTO postWorkerDTO,
+                                                            IAddressRepository addressRepository,
+                                                            IWorkerDetailsRepository workerDetailsRepository,
+                                                            IWorkerRepository workerRepository)
+        {
+            var response = new Response();
+
+            try
+            {
+                var address = new Address
+                {
+                    Street = postWorkerDTO.Street,
+                    StreetNumber = postWorkerDTO.StreetNumber,
+                    State = postWorkerDTO.State,
+                    PostalCode = postWorkerDTO.PostalCode,
+                };
+
+                await addressRepository.AddAddressAsync(address);
+
+                var workerDetails = new WorkerDetails
+                {
+                    SeniorityTypeCode = postWorkerDTO.SeniorityTypeCode,
+                    JoiningDate = postWorkerDTO.JoiningDate,
+                    DepartamentTypeCode = postWorkerDTO.DepartamentTypeCode,
+                };
+
+                await workerDetailsRepository.AddWorkerDetailsAsync(workerDetails);
+
+                var worker = new Worker
+                {
+                    WorkerName = postWorkerDTO.WorkerName,
+                    AddressId = address.AddressId,
+                    WorkerDetailsId = workerDetails.WorkerDetailsId,
+                };
+
+                await workerRepository.AddWorkerAsync(worker);
+
+                response.StatusCode = 200;
+                response.Message = "Worker created successfully";
+            }
+            catch (Exception ex)
+            {
+                response.StatusCode = 500;
+                response.Message = "An error occurred while creating the worker: " + ex.Message;
+            }
+
+            return response;
+        }
+
 
         //public async Task<List<Worker>> GetBySeniority(string SeniorityTypeCode)
         //{
