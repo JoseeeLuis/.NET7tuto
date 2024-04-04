@@ -2,47 +2,41 @@
 using Clients_Server.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 namespace Clients_Server.Services.WorkerService
 {
     public class WorkerServices : IWorkerService
     {
-        private readonly DataContext _context;
-
-        public WorkerServices(DataContext context)
+        private readonly IWorkerRepository _workerRepository;
+        private readonly IAddressRepository _addressRepository;
+        private readonly IWorkerDetailsRepository _workerDetailsRepository;
+        public WorkerServices(IWorkerRepository workerRepository,
+                              IAddressRepository addressRepository,
+                              IWorkerDetailsRepository workerDetailsRepository)
         {
-            _context = context;
+            _workerRepository = workerRepository;
+            _addressRepository = addressRepository;
+            _workerDetailsRepository = workerDetailsRepository;
         }
 
         public async Task<List<WorkerDTO>> GetAllWorkers()
         {
-            var workers =await  _context.Workers
-                .Include(w => w.Address)
-                .Include(w => w.Projects)
-                .Include(w=>w.WorkerDetails)
-                .Include(w=>w.WorkerDetails.DepartamentType)
-                .Include(w=>w.WorkerDetails.SeniorityType)
-                .Where(w => !w.IsDelete) 
-                .ToListAsync();
 
-            var formatWorkers=  workers.Select(w=>w.ToDto()).ToList();
+            var workers =await _workerRepository.GetAllWorkersAsync();
+
+            var formatWorkers = workers.Select(w => w.ToDto())
+                                       .ToList();
             return formatWorkers;
         }
 
         public async Task<WorkerDTO> GetSingleWorker(int WorkerId)
         {
-            var worker = await _context.Workers
-                .Include(w => w.WorkerDetails)
-                .Include(w => w.Address)
-                .Include(w => w.Projects)
-                .Include(w => w.WorkerDetails)
-                .Include(w => w.WorkerDetails.DepartamentType)
-                .Include(w => w.WorkerDetails.SeniorityType)
-                .FirstOrDefaultAsync(w => w.WorkerId == WorkerId);
+            var worker = await _workerRepository.GetSingleWorkerAsync(WorkerId);
             
             if (worker == null)
             {
-                return null;
+                return /*NotFoundObjectResult*/null;
             }
             var workerFormat = worker.ToDto();
 
@@ -55,11 +49,10 @@ namespace Clients_Server.Services.WorkerService
             var response = new Response();
             try
             {
-                var worker = await _context.Workers.FirstOrDefaultAsync(w => w.WorkerId == WorkerId);
+                var worker =await _workerRepository.GetSingleWorkerAsync(WorkerId);
                 if (worker != null)
                 {
-                    worker.IsDelete = true;
-                    await _context.SaveChangesAsync();
+                    await _workerRepository.DeleteWorkerAsync(worker);
                     response.StatusCode = 200;
                     response.Message = "Worker deleted successfully";
                     
@@ -74,17 +67,13 @@ namespace Clients_Server.Services.WorkerService
 
             catch (Exception ex) {
 
-                response.StatusCode = 500;
+                response.StatusCode = ex.HResult;
                 response.Message = "An error occurred while deleting the worker: " + ex.Message;
-
             }
             return response;
         }
 
-        public async Task<Response> CreateWorker(PostWorkerDTO postWorkerDTO,
-                                                            IAddressRepository addressRepository,
-                                                            IWorkerDetailsRepository workerDetailsRepository,
-                                                            IWorkerRepository workerRepository)
+        public async Task<Response> CreateWorker(PostWorkerDTO postWorkerDTO)
         {
             var response = new Response();
 
@@ -98,7 +87,7 @@ namespace Clients_Server.Services.WorkerService
                     PostalCode = postWorkerDTO.PostalCode,
                 };
 
-                await addressRepository.AddAddressAsync(address);
+                await _addressRepository.AddAddressAsync(address);
 
                 var workerDetails = new WorkerDetails
                 {
@@ -107,7 +96,7 @@ namespace Clients_Server.Services.WorkerService
                     DepartamentTypeCode = postWorkerDTO.DepartamentTypeCode,
                 };
 
-                await workerDetailsRepository.AddWorkerDetailsAsync(workerDetails);
+                await _workerDetailsRepository.AddWorkerDetailsAsync(workerDetails);
 
                 var worker = new Worker
                 {
@@ -115,15 +104,16 @@ namespace Clients_Server.Services.WorkerService
                     AddressId = address.AddressId,
                     WorkerDetailsId = workerDetails.WorkerDetailsId,
                 };
-
-                await workerRepository.AddWorkerAsync(worker);
+                Log.Information("worker created with id", worker.WorkerId);
+                await _workerRepository.AddWorkerAsync(worker);
 
                 response.StatusCode = 200;
                 response.Message = "Worker created successfully";
             }
             catch (Exception ex)
             {
-                response.StatusCode = 500;
+                response.StatusCode = ex.HResult;
+                Log.Error("An error occurred while creating the worker: ", ex.Message, ex.HResult);
                 response.Message = "An error occurred while creating the worker: " + ex.Message;
             }
 
