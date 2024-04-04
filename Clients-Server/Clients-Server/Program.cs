@@ -1,5 +1,6 @@
 ﻿global using Clients_Server.Models;
 using Clients_Server.Data;
+using Clients_Server.Repositories;
 using Clients_Server.Services.WorkerService;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +12,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IWorkerService, WorkerServices>();
-builder.Services.AddDbContext<DataContext>();
+builder.Services.AddScoped<IAddressRepository, AddressRepository>();
+builder.Services.AddScoped<IWorkerDetailsRepository, WorkerDetailsRepository>();
+builder.Services.AddScoped<IWorkerRepository, WorkerRepository>();
 
 var app = builder.Build();
 
