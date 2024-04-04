@@ -1,4 +1,5 @@
 ﻿using Clients_Server.Models;
+using Clients_Server.Repositories;
 using Clients_Server.Services.WorkerService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,10 +11,18 @@ namespace Clients_Server.Controllers
     public class WorkerController : ControllerBase
     {
         private readonly IWorkerService _workerServices;
-
-        public WorkerController(IWorkerService workerServices)
+        private readonly IAddressRepository _addressRepository;
+        private readonly IWorkerDetailsRepository _workerDetailsRepository;
+        private readonly IWorkerRepository _workerRepository;
+        public WorkerController(IWorkerService workerServices,
+                            IAddressRepository addressRepository,
+                            IWorkerDetailsRepository workerDetailsRepository,
+                            IWorkerRepository workerRepository)
         {
             _workerServices = workerServices;
+            _addressRepository = addressRepository;
+            _workerDetailsRepository = workerDetailsRepository;
+            _workerRepository = workerRepository;
         }
         [HttpGet]
         public async Task<List<WorkerDTO>> GetAllWorkers()
@@ -33,26 +42,36 @@ namespace Clients_Server.Controllers
         }
 
 
-        //[HttpDelete("WorkerId")]
-        //public async Task<ActionResult<List<Worker>>> DeleteHero(int WorkerId)
-        //{
-        //    var results = await _workerServices.DeleteWorker(WorkerId);
+        [HttpDelete("WorkerId")]
+        public async Task<IActionResult> DeleteHero(int WorkerId)
+        {
+            var result = await _workerServices.DeleteWorker(WorkerId );
 
-        //    if (results is null)
-        //    {
-        //        return NotFound("This Worker doesn`t exists");
-        //    }
-        //    return Ok(results);
-        //}
-
+            if (result.StatusCode==200)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
+        }
 
         [HttpPost]
-        public async Task<ActionResult<List<Worker>>> CreateHero(PostWorkerDTO postWorkerDTO)
-        {
-            var result = await _workerServices.CreateWorker(postWorkerDTO);
+    public async Task<IActionResult> CreateWorker(PostWorkerDTO postWorkerDTO)
+    {
+        var result = await _workerServices.CreateWorker(postWorkerDTO, _addressRepository, _workerDetailsRepository, _workerRepository);
 
+        if (result.StatusCode == 200)
+        {
             return Ok(result);
         }
+        else
+        {
+            return BadRequest(result);
+        }
+    }
+
 
     }
 }
