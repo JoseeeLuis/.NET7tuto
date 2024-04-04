@@ -60,7 +60,7 @@ namespace Clients_Server.Controllers
         [HttpPost]
     public async Task<IActionResult> CreateWorker(PostWorkerDTO postWorkerDTO)
     {
-        var result = await _workerServices.CreateWorker(postWorkerDTO, _addressRepository, _workerDetailsRepository, _workerRepository);
+        var result = await _workerServices.CreateWorker(postWorkerDTO);
 
         if (result.StatusCode == 200)
         {
