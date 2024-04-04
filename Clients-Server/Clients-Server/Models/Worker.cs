@@ -19,14 +19,14 @@ namespace Clients_Server.Models
 
         public WorkerDTO ToDto()
         {
-            return new WorkerDTO
+            return new()
             {
                 WorkerId = WorkerId,
                 WorkerName = WorkerName,
-                FullAddress = Address != null ? $"{Address.Street} {Address.StreetNumber},C.P: {Address.PostalCode}, {Address.State}" : "This worker doesn't have an address.",
-                JoiningDate = WorkerDetails != null ? WorkerDetails.JoiningDate : DateTime.Now,
-                Departament = WorkerDetails != null ? WorkerDetails.DepartamentType.Departament : "This worker doesn't have any department assigned",
-                Seniority = WorkerDetails != null ? WorkerDetails.SeniorityTypeCode : "This worker doesn't have any seniority assigned",
+                FullAddress =  $"{Address.Street} {Address.StreetNumber},C.P: {Address.PostalCode}, {Address.State}" ,
+                JoiningDate =  WorkerDetails.JoiningDate,
+                Departament = WorkerDetails.DepartamentType.Departament ,
+                Seniority =  WorkerDetails.SeniorityTypeCode,
                 Projects = Projects
             };
         }
