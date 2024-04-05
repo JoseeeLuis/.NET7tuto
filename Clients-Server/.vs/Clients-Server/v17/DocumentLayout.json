@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\services\\workerservice\\workerservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\services\\workerservice\\workerservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\models\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\models\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\repositories\\iworkerdetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\repositories\\iworkerdetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\controllers\\workercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\controllers\\workercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,28 +23,32 @@
       "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\repositories\\iworkerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\services\\workerservice\\iworkerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\services\\workerservice\\iworkerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\dtos\\postworkerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\dtos\\postworkerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\dtos\\workerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\dtos\\workerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\repositories\\workerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\repositories\\workerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\repositories\\iworkerdetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\repositories\\iworkerdetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\services\\workerservice\\workerservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\services\\workerservice\\workerservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\models\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\models\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\models\\senioritytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\models\\senioritytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\models\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\models\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\models\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -49,18 +61,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\migrations\\20240403203339_createisdelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\migrations\\20240403203339_createisdelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\controllers\\workercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\controllers\\workercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\models\\workerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\models\\workerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\models\\postworkerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|solutionrelative:clients-server\\models\\postworkerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B657CC92-8279-47C2-A683-36E16D38D572}|Clients-Server\\Clients-Server.csproj|c:\\users\\josea\\.net7tuto\\clients-server\\clients-server\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -103,58 +103,123 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Worker.cs",
+              "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Models\\Worker.cs",
+              "RelativeDocumentMoniker": "Clients-Server\\Models\\Worker.cs",
+              "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Models\\Worker.cs",
+              "RelativeToolTip": "Clients-Server\\Models\\Worker.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-22T17:10:46.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "WorkerServices.cs",
               "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Services\\WorkerService\\WorkerServices.cs",
               "RelativeDocumentMoniker": "Clients-Server\\Services\\WorkerService\\WorkerServices.cs",
               "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Services\\WorkerService\\WorkerServices.cs",
               "RelativeToolTip": "Clients-Server\\Services\\WorkerService\\WorkerServices.cs",
-              "ViewState": "AQIAAGAAAAAAAAAAAAAowGkAAAASAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAA3wCoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T16:57:02.766Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "WorkerRepository.cs",
               "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Repositories\\WorkerRepository.cs",
               "RelativeDocumentMoniker": "Clients-Server\\Repositories\\WorkerRepository.cs",
               "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Repositories\\WorkerRepository.cs",
               "RelativeToolTip": "Clients-Server\\Repositories\\WorkerRepository.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAYwDEAAAAjAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-03T17:11:39.054Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
+              "Title": "WorkerDTO.cs",
+              "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\DTOs\\WorkerDTO.cs",
+              "RelativeDocumentMoniker": "Clients-Server\\DTOs\\WorkerDTO.cs",
+              "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\DTOs\\WorkerDTO.cs",
+              "RelativeToolTip": "Clients-Server\\DTOs\\WorkerDTO.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAzwAgAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-26T12:30:26.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PostWorkerDTO.cs",
+              "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\DTOs\\PostWorkerDTO.cs",
+              "RelativeDocumentMoniker": "Clients-Server\\DTOs\\PostWorkerDTO.cs",
+              "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\DTOs\\PostWorkerDTO.cs",
+              "RelativeToolTip": "Clients-Server\\DTOs\\PostWorkerDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T15:23:19.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IWorkerService.cs",
+              "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Services\\WorkerService\\IWorkerService.cs",
+              "RelativeDocumentMoniker": "Clients-Server\\Services\\WorkerService\\IWorkerService.cs",
+              "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Services\\WorkerService\\IWorkerService.cs",
+              "RelativeToolTip": "Clients-Server\\Services\\WorkerService\\IWorkerService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-05T13:33:30.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "IWorkerRepository.cs",
               "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Repositories\\IWorkerRepository.cs",
               "RelativeDocumentMoniker": "Clients-Server\\Repositories\\IWorkerRepository.cs",
               "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Repositories\\IWorkerRepository.cs",
               "RelativeToolTip": "Clients-Server\\Repositories\\IWorkerRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAjAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-03T17:21:14.004Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DataContext.cs",
-              "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Data\\DataContext.cs",
-              "RelativeDocumentMoniker": "Clients-Server\\Data\\DataContext.cs",
-              "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Data\\DataContext.cs",
-              "RelativeToolTip": "Clients-Server\\Data\\DataContext.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAwwAAAAAAAAAAA",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Program.cs",
+              "RelativeDocumentMoniker": "Clients-Server\\Program.cs",
+              "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Program.cs",
+              "RelativeToolTip": "Clients-Server\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-18T13:20:21.517Z",
+              "WhenOpened": "2024-03-22T17:27:16.101Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "WorkerController.cs",
+              "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Controllers\\WorkerController.cs",
+              "RelativeDocumentMoniker": "Clients-Server\\Controllers\\WorkerController.cs",
+              "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Controllers\\WorkerController.cs",
+              "RelativeToolTip": "Clients-Server\\Controllers\\WorkerController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-22T16:58:03.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "IWorkerDetailsRepository.cs",
               "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Repositories\\IWorkerDetailsRepository.cs",
               "RelativeDocumentMoniker": "Clients-Server\\Repositories\\IWorkerDetailsRepository.cs",
@@ -167,33 +232,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Program.cs",
-              "RelativeDocumentMoniker": "Clients-Server\\Program.cs",
-              "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Program.cs",
-              "RelativeToolTip": "Clients-Server\\Program.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABYAAAA1AAAA",
+              "DocumentIndex": 10,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Data\\DataContext.cs",
+              "RelativeDocumentMoniker": "Clients-Server\\Data\\DataContext.cs",
+              "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Data\\DataContext.cs",
+              "RelativeToolTip": "Clients-Server\\Data\\DataContext.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAwwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-22T17:27:16.101Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-18T13:20:21.517Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Response.cs",
-              "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Models\\Response.cs",
-              "RelativeDocumentMoniker": "Clients-Server\\Models\\Response.cs",
-              "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Models\\Response.cs",
-              "RelativeToolTip": "Clients-Server\\Models\\Response.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T18:02:28.835Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "20240403203339_CreateIsDelete.cs",
               "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Migrations\\20240403203339_CreateIsDelete.cs",
               "RelativeDocumentMoniker": "Clients-Server\\Migrations\\20240403203339_CreateIsDelete.cs",
@@ -201,12 +252,11 @@
               "RelativeToolTip": "Clients-Server\\Migrations\\20240403203339_CreateIsDelete.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T20:33:52.253Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T20:33:52.253Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "WorkerDetails.cs",
               "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Models\\WorkerDetails.cs",
               "RelativeDocumentMoniker": "Clients-Server\\Models\\WorkerDetails.cs",
@@ -214,25 +264,11 @@
               "RelativeToolTip": "Clients-Server\\Models\\WorkerDetails.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-22T17:51:00.971Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-22T17:51:00.971Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "WorkerController.cs",
-              "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Controllers\\WorkerController.cs",
-              "RelativeDocumentMoniker": "Clients-Server\\Controllers\\WorkerController.cs",
-              "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Controllers\\WorkerController.cs",
-              "RelativeToolTip": "Clients-Server\\Controllers\\WorkerController.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAQwB0AAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-22T16:58:03.063Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "Project.cs",
               "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Models\\Project.cs",
               "RelativeDocumentMoniker": "Clients-Server\\Models\\Project.cs",
@@ -240,12 +276,11 @@
               "RelativeToolTip": "Clients-Server\\Models\\Project.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-22T19:22:04.462Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-22T19:22:04.462Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "SeniorityType.cs",
               "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Models\\SeniorityType.cs",
               "RelativeDocumentMoniker": "Clients-Server\\Models\\SeniorityType.cs",
@@ -253,21 +288,7 @@
               "RelativeToolTip": "Clients-Server\\Models\\SeniorityType.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T12:42:42.394Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Worker.cs",
-              "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Models\\Worker.cs",
-              "RelativeDocumentMoniker": "Clients-Server\\Models\\Worker.cs",
-              "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Models\\Worker.cs",
-              "RelativeToolTip": "Clients-Server\\Models\\Worker.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-22T17:10:46.562Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-26T12:42:42.394Z"
             },
             {
               "$type": "Document",
@@ -279,21 +300,7 @@
               "RelativeToolTip": "Clients-Server\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-03-18T13:47:02.96Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "WorkerDTO.cs",
-              "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Models\\WorkerDTO.cs",
-              "RelativeDocumentMoniker": "Clients-Server\\Models\\WorkerDTO.cs",
-              "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Models\\WorkerDTO.cs",
-              "RelativeToolTip": "Clients-Server\\Models\\WorkerDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T12:30:26.344Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-18T13:47:02.96Z"
             },
             {
               "$type": "Document",
@@ -305,21 +312,7 @@
               "RelativeToolTip": "Clients-Server\\Models\\Address.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-22T19:22:02.126Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "PostWorkerDTO.cs",
-              "DocumentMoniker": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Models\\PostWorkerDTO.cs",
-              "RelativeDocumentMoniker": "Clients-Server\\Models\\PostWorkerDTO.cs",
-              "ToolTip": "C:\\Users\\josea\\.NET7tuto\\Clients-Server\\Clients-Server\\Models\\PostWorkerDTO.cs",
-              "RelativeToolTip": "Clients-Server\\Models\\PostWorkerDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T15:23:19.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-22T19:22:02.126Z"
             },
             {
               "$type": "Document",
@@ -331,8 +324,7 @@
               "RelativeToolTip": "Clients-Server\\Repositories\\WorkerDetailsRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T17:26:36.18Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T17:26:36.18Z"
             },
             {
               "$type": "Document",
@@ -344,8 +336,7 @@
               "RelativeToolTip": "Clients-Server\\Repositories\\AddressRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T17:27:13.721Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T17:27:13.721Z"
             },
             {
               "$type": "Document",
@@ -357,8 +348,7 @@
               "RelativeToolTip": "Clients-Server\\Repositories\\IAddressRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T17:28:17.21Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T17:28:17.21Z"
             },
             {
               "$type": "Document",
@@ -370,8 +360,7 @@
               "RelativeToolTip": "Clients-Server\\Models\\DepartamentType.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T12:56:38.629Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-26T12:56:38.629Z"
             },
             {
               "$type": "Document",
@@ -383,8 +372,7 @@
               "RelativeToolTip": "Clients-Server\\Migrations\\20240326132812_createTypes.cs",
               "ViewState": "AQIAAEkAAAAAAAAAAAAuwF4AAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T13:28:17.562Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-26T13:28:17.562Z"
             }
           ]
         }
