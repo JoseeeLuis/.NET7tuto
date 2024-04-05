@@ -1,7 +1,5 @@
-﻿using Clients_Server.Models;
-using Clients_Server.Repositories;
+﻿using Clients_Server.DTOS;
 using Clients_Server.Services.WorkerService;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Clients_Server.Controllers
@@ -35,33 +33,35 @@ namespace Clients_Server.Controllers
 
         [HttpDelete("WorkerId")]
         public async Task<IActionResult> DeleteHero(int WorkerId)
-        {
-            var result = await _workerServices.DeleteWorker(WorkerId );
 
-            if (result.StatusCode==200)
+        {
+
+            var result = await _workerServices.DeleteWorker(WorkerId);
+
+            if (result == true)
             {
-                return Ok(result);
+                return Ok("Worker delete successfully");
             }
             else
             {
-                return BadRequest(result);
+                return BadRequest("Bad Request");
             }
         }
 
         [HttpPost]
-    public async Task<IActionResult> CreateWorker(PostWorkerDTO postWorkerDTO)
-    {
-        var result = await _workerServices.CreateWorker(postWorkerDTO);
+        public async Task<IActionResult> CreateWorker(PostWorkerDTO postWorkerDTO)
+        {
+            var result = await _workerServices.CreateWorker(postWorkerDTO);
 
-        if (result.StatusCode == 200)
-        {
-            return Ok(result);
+            if (result == true)
+            {
+                return Ok("Successfully created worker");
+            }
+            else
+            {
+                return BadRequest("Bad Request");
+            }
         }
-        else
-        {
-            return BadRequest(result);
-        }
-    }
 
 
     }
