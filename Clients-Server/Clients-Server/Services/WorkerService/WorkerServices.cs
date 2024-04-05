@@ -1,102 +1,114 @@
-﻿using Clients_Server.Data;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Clients_Server.DTOS;
+using Clients_Server.Repositories;
 
 namespace Clients_Server.Services.WorkerService
 {
     public class WorkerServices : IWorkerService
     {
-        private readonly DataContext _context;
-
-        public WorkerServices(DataContext context)
+        private readonly IWorkerRepository _workerRepository;
+        private readonly IAddressRepository _addressRepository;
+        private readonly IWorkerDetailsRepository _workerDetailsRepository;
+        public WorkerServices(IWorkerRepository workerRepository,
+                              IAddressRepository addressRepository,
+                              IWorkerDetailsRepository workerDetailsRepository)
         {
-            _context = context;
+            _workerRepository = workerRepository;
+            _addressRepository = addressRepository;
+            _workerDetailsRepository = workerDetailsRepository;
         }
 
         public async Task<List<WorkerDTO>> GetAllWorkers()
         {
-            var workers =await  _context.Workers
-                .Include(w => w.Address)
-                .Include(w => w.Projects)
-                .Include(w=>w.WorkerDetails)
-                .Include(w=>w.WorkerDetails.DepartamentType)
-                .Include(w=>w.WorkerDetails.SeniorityType)
-                .ToListAsync();
 
-            var formatWorkers=  workers.Select(w=>w.ToDto()).ToList();
+            var workers =await _workerRepository.GetAllWorkersAsync();
+
+            var formatWorkers = workers.Select(WorkerDTO.FromWorker)
+                                       .ToList();
             return formatWorkers;
         }
 
         public async Task<WorkerDTO> GetSingleWorker(int WorkerId)
         {
-            var worker = await _context.Workers
-                .Include(w => w.WorkerDetails)
-                .Include(w => w.Address)
-                .FirstOrDefaultAsync(w => w.WorkerId == WorkerId);
+            var worker = await _workerRepository.GetSingleWorkerAsync(WorkerId);
             
             if (worker == null)
             {
                 return null;
             }
-            var workerFormat = worker.ToDto();
+            var workerFormat = WorkerDTO.FromWorker(worker);
 
             return workerFormat;
         }
 
 
-        //public async Task<List<Worker>> DeleteWorker(int WorkerId)
-        //{
-        //    var worker = await _context.Workers
-        //        .Include(w => w.WorkerDetails)
-        //        .Include(w => w.Address)
-        //        .FirstOrDefaultAsync(w => w.WorkerId == WorkerId);
-        //    if (worker is null)
-        //        return null;
-        //    _context.Workers.Remove(worker);
-        //    await _context.SaveChangesAsync();
-        //    var workers = await _context.Workers.ToListAsync();
-        //    return workers;
-        //}
-        public async Task<List<WorkerDTO>> CreateWorker(PostWorkerDTO postWorkerDTO)
+        public async Task<Boolean> DeleteWorker(int WorkerId)
         {
-            var address = new Address
+            var Sucessfully = false;
+            try
             {
-                Street = postWorkerDTO.Street,
-                StreetNumber = postWorkerDTO.StreetNumber,
-                State = postWorkerDTO.State,
-                PostalCode = postWorkerDTO.PostalCode,
-            };
-           await _context.Addresses.AddAsync(address);
-            await _context.SaveChangesAsync();
-            
-            var workerDetails = new WorkerDetails
+                var response = await _workerRepository.DeleteWorkerAsync(WorkerId);
+                if (response == false)
+                {
+                    Sucessfully = false;
+                }
+                else
+                {
+                    Sucessfully = true;
+                }
+            }
+            catch (Exception ex)
             {
-                SeniorityTypeCode = postWorkerDTO.SeniorityTypeCode,
-                JoiningDate = postWorkerDTO.JoiningDate,
-                DepartamentTypeCode = postWorkerDTO.DepartamentTypeCode,
-            };
-             await _context.WorkersDetails.AddAsync(workerDetails);
-            await _context.SaveChangesAsync();
-            var worker = new Worker
-            {
-                WorkerName = postWorkerDTO.WorkerName,
-                AddressId = address.AddressId,
-                WorkerDetailsId =workerDetails.WorkerDetailsId,
-
-            };
-            await _context.Workers.AddAsync(worker);
-    
-            await _context.SaveChangesAsync();
-            var workers =  await GetAllWorkers();
-            if (workers == null)
-            {
-                return null;
+                Log.Error("An error occurred while Delete the worker: ", ex.Message, ex.HResult);
+                Sucessfully = false;
             }
 
-
-
-            return workers;
+            
+            return Sucessfully;
         }
+
+        public async Task<Boolean> CreateWorker(PostWorkerDTO postWorkerDTO)
+        {
+            var Succesfully = true;
+            try
+            {
+                var address = new Address
+                {
+                    Street = postWorkerDTO.Street,
+                    StreetNumber = postWorkerDTO.StreetNumber,
+                    State = postWorkerDTO.State,
+                    PostalCode = postWorkerDTO.PostalCode,
+                };
+
+                await _addressRepository.AddAddressAsync(address);
+
+                var workerDetails = new WorkerDetails
+                {
+                    SeniorityTypeCode = postWorkerDTO.SeniorityTypeCode,
+                    JoiningDate = postWorkerDTO.JoiningDate,
+                    DepartamentTypeCode = postWorkerDTO.DepartamentTypeCode,
+                };
+
+                await _workerDetailsRepository.AddWorkerDetailsAsync(workerDetails);
+
+                var worker = new Worker
+                {
+                    WorkerName = postWorkerDTO.WorkerName,
+                    AddressId = address.AddressId,
+                    WorkerDetailsId = workerDetails.WorkerDetailsId,
+                };
+                await _workerRepository.AddWorkerAsync(worker);
+                Log.Information("worker created with id", worker.WorkerId);
+                Succesfully= true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error("An error occurred while creating the worker: ", ex.Message, ex.HResult);
+                Succesfully = false;
+            }
+
+            return Succesfully;
+        }
+
 
         //public async Task<List<Worker>> GetBySeniority(string SeniorityTypeCode)
         //{

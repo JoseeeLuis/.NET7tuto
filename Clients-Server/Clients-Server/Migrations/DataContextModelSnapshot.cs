@@ -103,6 +103,9 @@ namespace Clients_Server.Migrations
                     b.Property<int>("AddressId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
                     b.Property<int>("WorkerDetailsId")
                         .HasColumnType("int");
 

@@ -1,0 +1,5 @@
+2024-04-05 11:33:24.049 -03:00 [ERR] An error occurred while Delete the worker: 
+2024-04-05 12:06:26.265 -03:00 [ERR] An error occurred while Delete the worker: 
+2024-04-05 12:36:08.348 -03:00 [ERR] An error occurred while Delete the worker: 
+2024-04-05 12:36:29.055 -03:00 [ERR] An error occurred while Delete the worker: 
+2024-04-05 12:37:07.427 -03:00 [ERR] An error occurred while Delete the worker: 

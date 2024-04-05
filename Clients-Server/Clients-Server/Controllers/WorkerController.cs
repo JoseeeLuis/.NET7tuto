@@ -1,6 +1,5 @@
-﻿using Clients_Server.Models;
+﻿using Clients_Server.DTOS;
 using Clients_Server.Services.WorkerService;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Clients_Server.Controllers
@@ -10,7 +9,6 @@ namespace Clients_Server.Controllers
     public class WorkerController : ControllerBase
     {
         private readonly IWorkerService _workerServices;
-
         public WorkerController(IWorkerService workerServices)
         {
             _workerServices = workerServices;
@@ -33,26 +31,38 @@ namespace Clients_Server.Controllers
         }
 
 
-        //[HttpDelete("WorkerId")]
-        //public async Task<ActionResult<List<Worker>>> DeleteHero(int WorkerId)
-        //{
-        //    var results = await _workerServices.DeleteWorker(WorkerId);
+        [HttpDelete("WorkerId")]
+        public async Task<IActionResult> DeleteHero(int WorkerId)
 
-        //    if (results is null)
-        //    {
-        //        return NotFound("This Worker doesn`t exists");
-        //    }
-        //    return Ok(results);
-        //}
+        {
 
+            var result = await _workerServices.DeleteWorker(WorkerId);
+
+            if (result == true)
+            {
+                return Ok("Worker delete successfully");
+            }
+            else
+            {
+                return BadRequest("Bad Request");
+            }
+        }
 
         [HttpPost]
-        public async Task<ActionResult<List<Worker>>> CreateHero(PostWorkerDTO postWorkerDTO)
+        public async Task<IActionResult> CreateWorker(PostWorkerDTO postWorkerDTO)
         {
             var result = await _workerServices.CreateWorker(postWorkerDTO);
 
-            return Ok(result);
+            if (result == true)
+            {
+                return Ok("Successfully created worker");
+            }
+            else
+            {
+                return BadRequest("Bad Request");
+            }
         }
+
 
     }
 }

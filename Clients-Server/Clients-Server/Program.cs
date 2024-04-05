@@ -1,5 +1,7 @@
 ﻿global using Clients_Server.Models;
+global using Serilog;
 using Clients_Server.Data;
+using Clients_Server.Repositories;
 using Clients_Server.Services.WorkerService;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +13,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IWorkerService, WorkerServices>();
-builder.Services.AddDbContext<DataContext>();
+builder.Services.AddScoped<IAddressRepository, AddressRepository>();
+builder.Services.AddScoped<IWorkerDetailsRepository, WorkerDetailsRepository>();
+builder.Services.AddScoped<IWorkerRepository, WorkerRepository>();
+Log.Logger = new LoggerConfiguration()
+                 .MinimumLevel
+                 .Information()
+                 .WriteTo.Console()
+                 .WriteTo.File("logs/WorkersLogs-.txt",rollingInterval: RollingInterval.Day)
+                 .CreateLogger();
 
 var app = builder.Build();
 
