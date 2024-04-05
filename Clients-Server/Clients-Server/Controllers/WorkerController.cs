@@ -11,18 +11,9 @@ namespace Clients_Server.Controllers
     public class WorkerController : ControllerBase
     {
         private readonly IWorkerService _workerServices;
-        private readonly IAddressRepository _addressRepository;
-        private readonly IWorkerDetailsRepository _workerDetailsRepository;
-        private readonly IWorkerRepository _workerRepository;
-        public WorkerController(IWorkerService workerServices,
-                            IAddressRepository addressRepository,
-                            IWorkerDetailsRepository workerDetailsRepository,
-                            IWorkerRepository workerRepository)
+        public WorkerController(IWorkerService workerServices)
         {
             _workerServices = workerServices;
-            _addressRepository = addressRepository;
-            _workerDetailsRepository = workerDetailsRepository;
-            _workerRepository = workerRepository;
         }
         [HttpGet]
         public async Task<List<WorkerDTO>> GetAllWorkers()
