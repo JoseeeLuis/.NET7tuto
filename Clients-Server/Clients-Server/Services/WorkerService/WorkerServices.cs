@@ -1,8 +1,5 @@
-﻿using Clients_Server.Data;
+﻿using Clients_Server.DTOS;
 using Clients_Server.Repositories;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Serilog;
 
 namespace Clients_Server.Services.WorkerService
 {
@@ -25,7 +22,7 @@ namespace Clients_Server.Services.WorkerService
 
             var workers =await _workerRepository.GetAllWorkersAsync();
 
-            var formatWorkers = workers.Select(w => w.ToDto())
+            var formatWorkers = workers.Select(WorkerDTO.FromWorker)
                                        .ToList();
             return formatWorkers;
         }
@@ -36,47 +33,42 @@ namespace Clients_Server.Services.WorkerService
             
             if (worker == null)
             {
-                return /*NotFoundObjectResult*/null;
+                return null;
             }
-            var workerFormat = worker.ToDto();
+            var workerFormat = WorkerDTO.FromWorker(worker);
 
             return workerFormat;
         }
 
 
-        public async Task<Response> DeleteWorker(int WorkerId)
+        public async Task<Boolean> DeleteWorker(int WorkerId)
         {
-            var response = new Response();
+            var Sucessfully = false;
             try
             {
-                var worker =await _workerRepository.GetSingleWorkerAsync(WorkerId);
-                if (worker != null)
+                var response = await _workerRepository.DeleteWorkerAsync(WorkerId);
+                if (response == false)
                 {
-                    await _workerRepository.DeleteWorkerAsync(worker);
-                    response.StatusCode = 200;
-                    response.Message = "Worker deleted successfully";
-                    
+                    Sucessfully = false;
                 }
                 else
                 {
-                    response.StatusCode = 404;
-                    response.Message = "Worker NotFound";
+                    Sucessfully = true;
                 }
-    
+            }
+            catch (Exception ex)
+            {
+                Log.Error("An error occurred while Delete the worker: ", ex.Message, ex.HResult);
+                Sucessfully = false;
             }
 
-            catch (Exception ex) {
-
-                response.StatusCode = ex.HResult;
-                response.Message = "An error occurred while deleting the worker: " + ex.Message;
-            }
-            return response;
+            
+            return Sucessfully;
         }
 
-        public async Task<Response> CreateWorker(PostWorkerDTO postWorkerDTO)
+        public async Task<Boolean> CreateWorker(PostWorkerDTO postWorkerDTO)
         {
-            var response = new Response();
-
+            var Succesfully = true;
             try
             {
                 var address = new Address
@@ -104,20 +96,17 @@ namespace Clients_Server.Services.WorkerService
                     AddressId = address.AddressId,
                     WorkerDetailsId = workerDetails.WorkerDetailsId,
                 };
-                Log.Information("worker created with id", worker.WorkerId);
                 await _workerRepository.AddWorkerAsync(worker);
-
-                response.StatusCode = 200;
-                response.Message = "Worker created successfully";
+                Log.Information("worker created with id", worker.WorkerId);
+                Succesfully= true;
             }
             catch (Exception ex)
             {
-                response.StatusCode = ex.HResult;
                 Log.Error("An error occurred while creating the worker: ", ex.Message, ex.HResult);
-                response.Message = "An error occurred while creating the worker: " + ex.Message;
+                Succesfully = false;
             }
 
-            return response;
+            return Succesfully;
         }
 
 
