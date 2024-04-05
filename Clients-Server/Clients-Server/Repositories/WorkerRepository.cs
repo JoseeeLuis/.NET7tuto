@@ -1,5 +1,4 @@
 ﻿using Clients_Server.Data;
-using Clients_Server.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Clients_Server.Repositories
@@ -44,10 +43,17 @@ namespace Clients_Server.Repositories
 
             return worker;
         }
-        public async Task<int> DeleteWorkerAsync(Worker worker){
+        public async Task<Boolean> DeleteWorkerAsync(int WorkerId){
+            var worker = await _context.Workers
+                .FirstOrDefaultAsync(w => w.WorkerId == WorkerId);
+            if (worker is null)
+            {
+                return false;
+            }
+
             worker.IsDelete = true;
             await _context.SaveChangesAsync();
-            return worker.WorkerId;
+            return true;
         }
 
     }
